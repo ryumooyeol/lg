@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LG Home Manager</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div>
+        <div class="brand">LG Home Manager</div>
+        <div class="sub">우리 집을 한눈에 관리하세요</div>
+      </div>
+      <button class="bell" id="bellBtn">🔔<span class="dot"></span></button>
+    </header>
+
+    <main>
+      <section id="homePage" class="page active">
+        <div class="hero">
+          <div>
+            <p class="eyebrow">AI HOME MANAGER</p>
+            <h1>안녕하세요, 무열님 👋</h1>
+            <p>지금 우리 집에서 해야 할 일을 정리했어요.</p>
+          </div>
+          <div class="hero-orb">🏠</div>
+        </div>
+
+        <div class="section-head">
+          <h2>지금 해야 할 일</h2>
+          <span id="taskCount">3개</span>
+        </div>
+        <div id="priorityTasks" class="task-list"></div>
+
+        <div class="section-head">
+          <h2>우리 집 가전</h2>
+          <button class="text-btn" data-page="devices">전체보기</button>
+        </div>
+        <div id="devicePreview" class="device-grid"></div>
+
+        <div class="section-head">
+          <h2>AI 추천</h2>
+        </div>
+        <div class="recommend-card" id="recommendCard">
+          <div class="recommend-icon">🍳</div>
+          <div>
+            <b>오늘 저녁, 냉장고 재료로 만들어보세요</b>
+            <p>소비기한이 가까운 대파와 닭가슴살을 활용한 메뉴예요.</p>
+          </div>
+          <button class="round-btn" id="recipeFromHome">›</button>
+        </div>
+      </section>
+
+      <section id="devicesPage" class="page">
+        <div class="page-title">
+          <button class="back-btn" data-page="home">‹</button>
+          <div>
+            <h1>우리 집 가전</h1>
+            <p>연결된 LG 가전을 관리하세요.</p>
+          </div>
+        </div>
+        <div id="deviceFull" class="device-grid full"></div>
+      </section>
+
+      <section id="deviceDetailPage" class="page">
+        <div class="page-title">
+          <button class="back-btn" data-page="devices">‹</button>
+          <div>
+            <h1 id="detailTitle">냉장고</h1>
+            <p id="detailSubtitle">상태와 서비스를 확인하세요.</p>
+          </div>
+        </div>
+        <div id="deviceDetail"></div>
+      </section>
+
+      <section id="recipePage" class="page">
+        <div class="page-title">
+          <button class="back-btn" data-page="home">‹</button>
+          <div>
+            <h1>🍳 오늘의 요리</h1>
+            <p>냉장고 재료를 활용한 AI 추천</p>
+          </div>
+        </div>
+        <div class="recipe-hero">
+          <div class="food">🍗</div>
+          <div>
+            <span class="tag">냉장고 재료 활용</span>
+            <h2>닭가슴살 대파 볶음밥</h2>
+            <p>15분 · 쉬움 · 2인분</p>
+          </div>
+        </div>
+        <div class="info-grid">
+          <div><b>사용할 재료</b><p>닭가슴살 · 대파 · 계란 · 밥</p></div>
+          <div><b>소비기한 우선</b><p>대파 1일 남음 · 닭가슴살 6일 남음</p></div>
+        </div>
+        <h3>조리 순서</h3>
+        <div class="steps">
+          <div><b>01</b> 대파와 닭가슴살을 손질하세요.</div>
+          <div><b>02</b> 팬을 예열하고 대파를 먼저 볶으세요.</div>
+          <div><b>03</b> 닭가슴살과 밥, 계란을 넣고 볶으세요.</div>
+        </div>
+        <button class="primary-btn" id="startOven">🔥 오븐/조리기기 준비하기</button>
+      </section>
+
+      <section id="tasksPage" class="page">
+        <div class="page-title">
+          <div>
+            <h1>📋 집안일</h1>
+            <p>AI가 우선순위를 정리했어요.</p>
+          </div>
+        </div>
+        <div class="filter-row">
+          <button class="filter active">전체</button>
+          <button class="filter">지금</button>
+          <button class="filter">오늘</button>
+          <button class="filter">이번 주</button>
+        </div>
+        <div id="allTasks" class="task-list"></div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav">
+      <button class="nav-item active" data-page="home"><span>⌂</span>홈</button>
+      <button class="nav-item" data-page="devices"><span>▦</span>가전</button>
+      <button class="nav-item" data-page="recipe"><span>♨</span>요리</button>
+      <button class="nav-item" data-page="tasks"><span>✓</span>할 일</button>
+    </nav>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="js/script.js"></script>
+</body>
+</html>
